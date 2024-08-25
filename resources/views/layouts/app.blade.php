@@ -9,12 +9,14 @@
     <body class="bg-gray-100">
         <header class="p-5 border-b bg-white shadow">
                 <div class="container mx-auto flex justify-between items-center">
-                    <h1 class="text-3xl font-black">
-                        DevStagram :P
-                    </h1>
+                    <a href="/">
+                        <h1 class="text-3xl font-black bold">
+                            DevStagram
+                        </h1>
+                    </a>
                     <nav class="flex gap-2 item">
                         <a class="font-bold uppercase text-gray-600 text-sm" href="">Login</a>
-                        <a class="font-bold uppercase text-gray-600 text-sm" href="">Crear Cuenta</a>
+                        <a class="font-bold uppercase text-gray-600 text-sm" href="/register">Crear Cuenta</a>
                         <a class="font-bold uppercase text-gray-600 text-sm" href="/ayuda">Ayuda</a>
                     </nav>
                 </div>
@@ -27,8 +29,8 @@
             @yield('contenido')
         </main>
 
-        <footer class="text-center p-5 text-white font-bold bg-gray-700">
-            DevStagram - Todos los derechos reservados 
+        <footer class="mt-20 text-center p-5 text-white font-bold bg-gray-700">
+            DEVSTAGRAM - TODOS LOS DERECHOS RESERVADOS
         {{now()-> year}}
         </footer>
 
