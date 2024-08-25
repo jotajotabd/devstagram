@@ -10,7 +10,7 @@
         <header class="p-5 border-b bg-white shadow">
                 <div class="container mx-auto flex justify-between items-center">
                     <h1 class="text-3xl font-black">
-                        DevStagram
+                        DevStagram :P
                     </h1>
                     <nav class="flex gap-2 item">
                         <a class="font-bold uppercase text-gray-600 text-sm" href="">Login</a>
