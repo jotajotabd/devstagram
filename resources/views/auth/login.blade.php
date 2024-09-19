@@ -7,11 +7,11 @@
 @section('contenido')
     <div class="md:flex justify-center md:gap-10 md:items-center">
 
-        <div class="md:w-6/12 p-6">
+        <div class="md:w-5/12 p-6">
             <img src="{{asset ('img/login.jpg')}}" alt="Imagen registro de usuario ">
         </div>
 
-        <div class="md:w-6/12 bg-white shadow-xl p-6 rounded-lg">
+        <div class="md:w-5/12 bg-white shadow-xl p-6 rounded-lg">
             <form method="POST" action="{{ route('login') }}" novalidate>
                 @csrf 
                 <div class="mb-5">
@@ -47,6 +47,9 @@
                         <p class="my-2 text-sm italic text-red-600">{{$message}}</p>
                     @enderror
                 </div>
+                @session('mensaje')
+                    <p class="my-2 text-sm italic text-red-600 text-center">{{ session('mensaje') }}</p>
+                @endsession
                 <input type="submit" value="Iniciar Sesión" class="bg-sky-600 hover:bg-sky-700 text-white cursor-pointer uppercase w-full p-3 font-bold rounded-lg transition-colors">
             </form>
         </div>
