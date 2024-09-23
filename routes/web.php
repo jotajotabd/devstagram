@@ -13,6 +13,10 @@ Route::get('/ayuda', function () {
     return view('ayuda');
 });
 
+Route::get('/estilos', function () {
+    return view('practicas.estilos');
+});
+
 Route::get('/register',[RegisterController::class, 'index'])->name('register');
 Route::post('/register',[RegisterController::class, 'store']);
 
