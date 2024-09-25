@@ -17,11 +17,17 @@
                     @auth
                         <p class="font-bold uppercase text-green-400 text-sm italic">
                             Usuario Autenticado
-                        </p>   
+                        </p>
                     @endauth
-                    <nav class="flex gap-2 item">
-                        <a class="font-bold uppercase text-gray-600 text-sm" href="/login">Login</a>
-                        <a class="font-bold uppercase text-gray-600 text-sm" href="{{route('register')}}">Crear Cuenta</a>
+
+                    @guest
+                        <nav class="flex gap-2 item">
+                            <a class="font-bold uppercase text-gray-600 text-sm" href="/login">Login</a>
+                            <a class="font-bold uppercase text-gray-600 text-sm" href="{{route('register')}}">Crear Cuenta</a>
+                        </nav>
+                    @endguest
+                    <nav class="flex gap-2">
+                        <a class="font-bold uppercase text-gray-600 text-sm">Cerrar Sesión</a>
                         <a class="font-bold uppercase text-gray-600 text-sm" href="/ayuda">Ayuda</a>
                     </nav>
                 </div>

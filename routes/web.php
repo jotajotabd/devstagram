@@ -25,4 +25,3 @@ Route::post('/login', [LoginController::class, 'store']);
 
 
 Route::get('/muro', [PostController::class, 'index'])->middleware('auth')->name('post.index');
- 

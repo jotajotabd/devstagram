@@ -33,14 +33,14 @@
                 </div>
                 <div class="mb-5">
                     <label for="password" class="mb-2 block uppercase text-gray-500 font-bold">Password</label>
-                    <input 
-                        id="password" 
-                        type="password" 
-                        name="password" 
-                        placeholder="Tu contraseña" 
+                    <input
+                        id="password"
+                        type="password"
+                        name="password"
+                        placeholder="Tu contraseña"
                         class="border p-3 w-full rounded-lg
-                        @error('password') 
-                        border-red-500 
+                        @error('password')
+                        border-red-500
                         @enderror"
                     >
                     @error('password')
@@ -48,7 +48,9 @@
                     @enderror
                 </div>
                 @session('mensaje')
-                    <p class="my-2 text-sm italic text-red-600 text-center">{{ session('mensaje') }}</p>
+                    <p class="my-2 text-sm italic text-red-600 text-center">
+                        {{ session('mensaje') }}
+                    </p>
                 @endsession
                 <input type="submit" value="Iniciar Sesión" class="bg-sky-600 hover:bg-sky-700 text-white cursor-pointer uppercase w-full p-3 font-bold rounded-lg transition-colors">
             </form>
