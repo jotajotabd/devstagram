@@ -16,8 +16,15 @@
                     </a>
                     @auth
                         <p class="font-bold uppercase text-green-400 text-sm italic">
-                            Usuario Autenticado
+                            Bienvenido {{auth()->user()->name}}
                         </p>
+                        <nav class="flex gap-2">
+                            <form method="POST" action=" {{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="font-bold uppercase text-gray-600 text-sm">Cerrar Sesión</button>
+                            </form>
+                            <a class="font-bold uppercase pt-0.5 text-gray-600 text-sm" href="/ayuda">Ayuda</a>
+                        </nav>
                     @endauth
 
                     @guest
@@ -26,10 +33,6 @@
                             <a class="font-bold uppercase text-gray-600 text-sm" href="{{route('register')}}">Crear Cuenta</a>
                         </nav>
                     @endguest
-                    <nav class="flex gap-2">
-                        <a class="font-bold uppercase text-gray-600 text-sm">Cerrar Sesión</a>
-                        <a class="font-bold uppercase text-gray-600 text-sm" href="/ayuda">Ayuda</a>
-                    </nav>
                 </div>
         </header>
 

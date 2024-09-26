@@ -52,6 +52,12 @@
                         {{ session('mensaje') }}
                     </p>
                 @endsession
+                <div>
+                    <input type="checkbox" name="remember" id="">
+                    <label for="" class="text-gray-500 text-sm">
+                        Mantener mi sesión activa
+                    </label>
+                </div>
                 <input type="submit" value="Iniciar Sesión" class="bg-sky-600 hover:bg-sky-700 text-white cursor-pointer uppercase w-full p-3 font-bold rounded-lg transition-colors">
             </form>
         </div>
