@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function index() 
+    public function index()
     {
         return view('auth.login');
     }
@@ -21,7 +22,8 @@ class LoginController extends Controller
         if(!auth()->attempt($request->only('email', 'password'), $request->remember)){
             return back()->with('mensaje', 'Credenciales Incorrectas');
         }
-
-        return redirect()->route('post.index');
+        return redirect()->route('post.index', [
+            'user' => $request->user()->username
+        ]);
     }
 }

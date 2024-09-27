@@ -11,7 +11,7 @@
                 <img src="{{ asset('img/usuario.png')}}" alt="imagen-ususario">
             </div>
             <div class="md:w-8/12 lg:w-6/12 px-5">
-                <p class="text-graay-700 text-2xl">{{auth()->user()->username}}</p>
+                <p class="text-graay-700 text-2xl">{{$user->username}}</p>
             </div>
         </div>
 
