@@ -28,3 +28,4 @@ Route::post('logout', [LogoutController::class, 'store'])->name('logout');
 
 
 Route::get('/{user:username}', [PostController::class, 'index'])->middleware('auth')->name('post.index');
+Route::get('/photos/create', [PostController::class, 'create'])->name('photos.create');

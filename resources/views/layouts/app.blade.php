@@ -8,22 +8,28 @@
     </head>
     <body class="bg-gray-100">
         <header class="p-5 border-b bg-white shadow">
-                <div class="container mx-auto flex justify-between items-center">
+                <div class="container mx-auto flex justify-between items-center gap-8">
                     <a href="/">
                         <h1 class="text-3xl font-black bold">
                             DevStagram
                         </h1>
                     </a>
                     @auth
-                        <p class="font-bold uppercase text-green-400 text-sm italic">
-                            Bienvenido {{auth()->user()->name}}
+                        <p class="font-bold uppercase text-green-400 text-sm italic text-center">
+                            Usuario Autenticado {{--{{auth()->user()->username}}--}}
                         </p>
                         <nav class="flex gap-2">
+                            <a class="font-bold text-gray-600 uppercase text-sm  flex items-center cursor-pointer gap-1" href="{{ route('photos.create') }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                </svg>
+                                Crear
+                            </a>
                             <form method="POST" action=" {{ route('logout') }}">
                                 @csrf
                                 <button type="submit" class="font-bold uppercase text-gray-600 text-sm">Cerrar Sesión</button>
                             </form>
-                            <a class="font-bold uppercase pt-0.5 text-gray-600 text-sm" href="/ayuda">Ayuda</a>
+                            <a class="font-bold uppercase flex items-center text-gray-600 text-sm" href="/ayuda">Ayuda</a>
                         </nav>
                     @endauth
 
