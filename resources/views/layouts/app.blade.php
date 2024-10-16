@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         @stack('style')
         @vite('resources/css/app.css')
+        @vite('resources/js/app.js')
+
         <title>@yield('titulo')</title>
     </head>
     <body class="bg-gray-100">

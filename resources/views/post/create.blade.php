@@ -5,7 +5,6 @@
 @endsection
 
 @push('style')
-    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 @endpush
 
@@ -17,6 +16,7 @@
                     enctype="multipart/form-data"
                     method="POST"
                     class="dropzone border-dashed border-2 w-full h-96 rounded flex flex-col justify-center items-center">
+                    @csrf
             </form>
         </div>
         <div class="md:w-1/2 bg-white shadow-xl p-6 rounded-lg mt-10 md:mt-0">
