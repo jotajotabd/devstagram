@@ -9,6 +9,7 @@ use Illuminate\Session\Middleware\StartSession;
 
 class PostController extends Controller
 {
+
     public function index(User $user)
     {
         return view('dashboard',[
@@ -19,5 +20,13 @@ class PostController extends Controller
     public function create()
     {
         return view('post.create');
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request,[
+            'titulo' => 'required',
+            'descripcion' => 'required',
+        ]);
     }
 }
