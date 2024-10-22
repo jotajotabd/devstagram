@@ -57,8 +57,17 @@
                         <p class="my-2 text-sm italic text-red-600">{{$message}}</p>
                     @enderror
                 </div>
+                <div class="mb-5">
+                    <input type="hidden"
+                           name="imagen"
+                           value="{{ old('imagen') }}"
+                    >
+                    @error('imagen')
+                        <p class="my-2 text-sm italic text-red-600">{{$message}}</p>
+                    @enderror
+                </div>
                 <input type="submit" value="Crear Publicación" class="bg-sky-600 hover:bg-sky-700 text-white cursor-pointer uppercase w-full p-3 font-bold rounded-lg transition-colors">
             </form>
+        </div>
     </div>
-
 @endsection
