@@ -9,7 +9,7 @@
 
         <title>@yield('titulo')</title>
     </head>
-    <body class="bg-gray-100">
+    <body class="bg-gray-100 grid h-dvh grid-rows-[auto_1fr_auto]">
         <header class="p-5 border-b bg-white shadow">
                 <div class="container mx-auto flex justify-between items-center gap-8">
                     <a href="/">

@@ -31,12 +31,20 @@ class RegisterController extends Controller
             'password_confirmation' => 'required'
         ]);
 
-        User::create([
-            'name' => $request -> name,
-            'username' => $request -> username,
-            'email' => $request -> email,
-            'password' => Hash::make($request -> password)
-        ]);
+        // User::create([
+        //     'name' => $request -> name,
+        //     'username' => $request -> username,
+        //     'email' => $request -> email,
+        //     'password' => Hash::make($request -> password)
+        // ]);
+
+        // Otra forma de crear registros en una BD
+        $user = new User;
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->password = Hash::make($request -> password);
+        $user->save();
 
         // Autenticar
 
@@ -50,8 +58,8 @@ class RegisterController extends Controller
         auth()->attempt($request->only('email','password'));
 
         // Redireccionar
-        return redirect() -> route('post.index', [
-            'user' => $request->user()->username
-        ]);
+
+        return redirect()->route('posts.index', auth()->user()->username);
+
     }
 }

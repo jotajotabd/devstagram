@@ -8,7 +8,7 @@
     <div class="flex justify-center">
         <div class="w-full md:w-8/12 lg:w-6/12 flex flex-col items-center md:flex-row">
             <div class="w-8/12 lg:w-6/12 px-5">
-                <img src="{{ asset('img/usuario.png')}}" alt="imagen-ususario">
+                <img src="{{ asset('img/usuario.svg')}}" alt="imagen-ususario">
             </div>
             <div class="md:w-8/12 lg:w-6/12 px-5 flex items-center flex-col md:items-start md:justify-center">
                 <p class="text-gray-700 text-2xl">{{$user->username}}</p>
