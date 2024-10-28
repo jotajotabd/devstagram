@@ -26,6 +26,28 @@
                 </p>
             </div>
         </div>
-
     </div>
+    <section class="container mx-auto mt-10">
+        <h2 class="font-black text-center text-3xl mb-10 my-10">
+            Publicaciones
+        </h2>
+        @if ($posts->count())
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 items-center">
+                @foreach ($posts as $post )
+                    <div>
+                        <a>
+                            <img src="{{ asset('uploads') . '/' . $post->imagen }}" alt="Imagen del post {{ $post->titulo }}">
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+            <div class="my-10">
+                {{ $posts->links() }}
+            </div>
+        @else
+            <p class="uppercase text-lg font-bold text-center text-gray-600">
+                Sin Publicaciones
+            </p>
+        @endif
+    </section>
 @endsection
