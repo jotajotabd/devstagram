@@ -43,7 +43,6 @@
                     <label for="descripcion" class="mb-2 block uppercase text-gray-500 font-bold">Descripción</label>
                     <textarea
                         id="descripcion"
-                        type="descripcion"
                         name="descripcion"
                         placeholder="Descripcion de la Publicación"
                         class="border p-3 w-full rounded-lg
