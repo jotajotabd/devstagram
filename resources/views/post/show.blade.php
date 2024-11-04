@@ -32,6 +32,23 @@
                 <p class="text-xl font-bold text-center mb-5">
                     Comentarios
                 </p>
+                @if ($post->comentarios->count())
+                    @foreach ($post->comentarios as $comentario )
+                        <div class="text-end my-5 p-2 bg-slate-100 rounded-3xl">
+                            <a href="{{ route('posts.index', $comentario->user) }}" class="font-bold"> {{ $comentario->user->username }}</a>
+                            <p class=""> {{ $comentario->comentario }}</p>
+                            <p class=" text-sm text-gray-600">
+                                {{ $comentario->created_at->diffForHumans() }}
+                            </p>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="p-20">
+                        <p class="italic uppercase text-center">
+                            Sin Comentarios Aún
+                        </p>
+                    </div>
+                @endif
                 @auth
                 <form action=" {{ route('comentario.store',['post'=> $post, 'user'=>$user ]) }}" method="POST">
                     @csrf
@@ -51,6 +68,12 @@
                             <p class="my-2 text-sm italic text-red-600">{{$message}}</p>
                         @enderror
                     </div>
+
+                    @session('mensaje')
+                        <p class="my-2 text-sm italic text-green-600 text-center">
+                            {{ session('mensaje') }}
+                        </p>
+                    @endsession
 
                     <input type="submit"
                            value="Publicar comentario"
