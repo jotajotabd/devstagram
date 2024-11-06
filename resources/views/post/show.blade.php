@@ -9,10 +9,19 @@
         <div class="md:w-1/2">
             <img src="{{ asset('uploads' . '/' . $post->imagen) }}" alt="Imagen del post {{ $post->titulo }}">
             <div>
-                <div class="p-3">
+                <div class="p-3 flex justify-between">
                     <p>
                         0 Likes
                     </p>
+                    @auth
+                        @if ($post->user_id === auth()->user()->id)
+                        <form action="{{ route('posts.destroy', $post) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <input type="submit" value="Eliminar" class="cursor-pointer text-white bg-red-500 p-2 rounded-full font-bold text-sm hover:bg-red-600 hover:text-black">
+                        </form>
+                        @endif
+                    @endauth
                 </div>
                 <div>
                     <p class="font-bold">
