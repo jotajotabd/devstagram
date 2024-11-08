@@ -30,13 +30,14 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::post('logout', [LogoutController::class, 'store'])->name('logout');
 
 
-Route::get('/{user:username}', [PostController::class, 'index'])->middleware('auth')->name('posts.index');
+Route::get('/{user:username}', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 Route::get('/{user:username}/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
 Route::post('/{user:username}/posts/{post}', [ComentarioController::class, 'store'])->name('comentario.store');
+Route::delete('/{user:username}/posts/{post}', [ComentarioController::class, 'destroy'])->name('comentario.destroy');
 
 
 Route::post('/imagenes', [ImagenController::class, 'store'])->name('imagenes.store');
