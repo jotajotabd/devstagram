@@ -12,7 +12,7 @@
         </div>
 
         <div class="md:w-6/12 bg-white shadow-xl p-6 rounded-lg">
-            <form action"{{route('register')}}" method="POST" novalidate>
+            <form action= "{{ route('register') }}" method="POST" novalidate>
                 @csrf
                 <div class="mb-5">
                     <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">Nombre</label>

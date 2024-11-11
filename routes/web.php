@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\RegisterController;
 
 Route::get('/', function () {
@@ -21,13 +22,18 @@ Route::get('/estilos', function () {
     return view('practicas.estilos');
 });
 
+// Register
 Route::get('/register',[RegisterController::class, 'index'])->name('register');
 Route::post('/register',[RegisterController::class, 'store']);
 
+//Logout
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
-
 Route::post('logout', [LogoutController::class, 'store'])->name('logout');
+
+// Editar perfil
+Route::get('/editar-perfil', [PerfilController::class, 'index'])->name('perfil.index');
+Route::post('/editar-perfil', [PerfilController::class, 'store'])->name('perfil.store');
 
 
 Route::get('/{user:username}', [PostController::class, 'index'])->name('posts.index');
@@ -42,7 +48,7 @@ Route::delete('/{user:username}/posts/{post}', [ComentarioController::class, 'de
 
 Route::post('/imagenes', [ImagenController::class, 'store'])->name('imagenes.store');
 
-//Like a las fotos
+// Like a las fotos
 Route::post('/posts/{post}/likes', [LikeController::class, 'store'])->name('posts.likes.store');
 Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('posts.likes.destroy');
 
