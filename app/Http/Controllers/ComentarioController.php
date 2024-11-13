@@ -25,9 +25,9 @@ class ComentarioController extends Controller
 
     }
 
-    public function destroy(Request $request, Comentario $comentario)
+    public function destroy(Request $request, $comentarioId)
     {
-        $request->user()->comentarios()->delete('id', $comentario->id);
+        $request->user()->comentarios()->find($comentarioId)->delete();
 
         return back()->with('mensaje', '¡Comentario eliminado!');
     }
