@@ -153,7 +153,7 @@
                     </div>
 
                     @session('mensaje')
-                        <p class="my-2 text-sm italic text-green-600 text-center">
+                        <p class="my-2 text-sm italic text-green-600 text-center font-bold">
                             {{ session('mensaje') }}
                         </p>
                     @endsession

@@ -5,6 +5,7 @@
 @endsection
 
 @section('contenido')
+
     <div class="flex justify-center">
         <div class="w-full md:w-8/12 lg:w-6/12 flex flex-col items-center md:flex-row">
             <div class="w-8/12 lg:w-6/12 px-5">
@@ -28,17 +29,41 @@
                     @endauth
                 </div>
                 <p class="text-gray-800 text-sm my-1 font-bold">
-                    0
-                    <span>Seguidores</span>
+                    {{ $user->followers->count() }}
+                    <span>@choice('Seguidor|Seguidores', $user->followers->count())</span>
                 </p>
                 <p class="text-gray-800 text-sm my-1 font-bold">
-                    0
+                    {{ $user->following->count() }}
                     <span>Siguiendo</span>
                 </p>
                 <p class="text-gray-800 text-sm my-1 font-bold">
                     {{ $user->posts->count() }}
                     <span>Posts</span>
                 </p>
+                @auth
+                    {{-- este "$user" es el usuario al que visitamos --}}
+                    @if ($user->id !== auth()->user()->id)
+                        @if ( !$user->siguiendo( auth()->user() ))
+                            <form action="{{ route('users.follow', $user) }}" method="POST">
+                                @csrf
+                                <input class="bg-blue-600 text-xs hover:bg-blue-700 font-bold text-white cursor-pointer p-2 px-4 mt-2 rounded-full" value="Seguir" type="submit"></input>
+                            </form>
+                        @else
+                            <form action="{{ route('users.unfollow', $user) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <input class="bg-red-600 text-xs hover:bg-red-700 font-bold text-white cursor-pointer p-2 px-4 mt-2 rounded-full" value="Dejar de Seguir" type="submit"></input>
+                            </form>
+                        @endif
+                    @endif
+                @endauth
+                @session('mensaje')
+                <div>
+                    <p class="my-2 text-sm italic text-green-600 font-bold">
+                        {{ session('mensaje') }}
+                    </p>
+                </div>
+                @endsession
             </div>
         </div>
     </div>
