@@ -43,6 +43,7 @@
                 @auth
                     {{-- este "$user" es el usuario al que visitamos --}}
                     @if ($user->id !== auth()->user()->id)
+                        {{-- este "$user" es el usuario auth que dió el follow --}}
                         @if ( !$user->siguiendo( auth()->user() ))
                             <form action="{{ route('users.follow', $user) }}" method="POST">
                                 @csrf
