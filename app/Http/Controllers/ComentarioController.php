@@ -25,10 +25,16 @@ class ComentarioController extends Controller
 
     }
 
-    public function destroy(Request $request, User $user, $comentarioId)
+    public function destroy(Request $request, User $user, Comentario $comentario)
     {
-        $request->user()->comentarios()->find($comentarioId)->delete();
-
-        return back()->with('mensaje', '¡Comentario eliminado!');
+        // dd($comentario->id);
+        if($comentario->post->user_id === auth()->user()->id){
+            $comentario->delete();
+            return back()->with('mensaje', '¡Comentario eliminado!');
+        }else{
+            $comentario->delete();
+            return back()->with('mensaje', '¡Comentario eliminado!');
+        }
     }
+        // $request->user()->comentarios()->where('id', $comentario->id)->delete();
 }

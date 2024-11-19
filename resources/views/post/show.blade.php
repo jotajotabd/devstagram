@@ -86,7 +86,7 @@
                             @auth
                                 {{-- Dueño del post --}}
                                 @if ($post->user_id === auth()->user()->id)
-                                    <form action="{{ route('comentario.destroy',['post'=> $post, 'user'=>$user, 'id'=> $comentario ])}}" class="flex" method="POST">
+                                    <form action="{{ route('comentario.destroy',['post'=> $post, 'user'=>$user, 'comentario'=> $comentario ])}}" class="flex" method="POST">
                                         @method('DELETE')
                                         @csrf
                                         <div>
@@ -102,7 +102,7 @@
                                     </p>
                                 {{-- Dueño del comentario --}}
                                 @elseif ($comentario->user_id === auth()->user()->id)
-                                    <form action="{{ route('comentario.destroy',['post'=> $post, 'user'=>$user, 'id'=> $comentario ])}}" class="flex" method="POST">
+                                    <form action="{{ route('comentario.destroy',['post'=> $post, 'user'=>$user, 'comentario'=> $comentario ])}}" class="flex" method="POST">
                                         @method('DELETE')
                                         @csrf
                                         <div>

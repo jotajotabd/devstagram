@@ -40,7 +40,7 @@ Route::get('/{user:username}/posts/{post}', [PostController::class, 'show'])->na
 Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
 Route::post('/{user:username}/posts/{post}', [ComentarioController::class, 'store'])->name('comentario.store');
-Route::delete('/{user:username}/posts/comentario/{id}', [ComentarioController::class, 'destroy'])->name('comentario.destroy');
+Route::delete('/{user:username}/posts/{comentario}', [ComentarioController::class, 'destroy'])->name('comentario.destroy');
 
 
 Route::post('/imagenes', [ImagenController::class, 'store'])->name('imagenes.store');
