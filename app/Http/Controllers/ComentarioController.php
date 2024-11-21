@@ -27,7 +27,11 @@ class ComentarioController extends Controller
 
     public function destroy(Request $request, User $user, Comentario $comentario)
     {
-        // dd($comentario->id);
+        // Se verifica si el usuario autenticado (obtenido con auth()->id())
+        // es el mismo usuario que creó el post al que pertenece el comentario.
+        // Esto se hace accediendo al usuario del post a través de la
+        // relación $comentario->post->user_id.
+
         if($comentario->post->user_id === auth()->user()->id){
             $comentario->delete();
             return back()->with('mensaje', '¡Comentario eliminado!');
@@ -36,5 +40,4 @@ class ComentarioController extends Controller
             return back()->with('mensaje', '¡Comentario eliminado!');
         }
     }
-        // $request->user()->comentarios()->where('id', $comentario->id)->delete();
 }
