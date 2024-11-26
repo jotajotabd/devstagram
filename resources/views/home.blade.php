@@ -13,6 +13,8 @@
                         <img src="{{ asset('uploads') . '/' . $post->imagen }}" alt="Imagen del post {{ $post->titulo }}">
                     </a>
                         @auth
+                            <livewire:like-post/>
+
                             @if ( $post->checkLike(auth()->user() ))
                                 <form action="{{ route('posts.likes.destroy', $post) }}" class="mt-2 flex gap-2" method="POST">
                                     @method('DELETE')

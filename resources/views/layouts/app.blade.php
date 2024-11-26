@@ -6,7 +6,7 @@
         @stack('style')
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
-
+        @livewireStyles()
         <title>DevStagram: @yield('titulo')</title>
     </head>
     <body class="bg-gray-100 grid h-dvh grid-rows-[auto_1fr_auto]">
@@ -66,6 +66,6 @@
         {{now()-> year}}
         </footer>
 
-
+    @livewireScripts()
     </body>
 </html>
