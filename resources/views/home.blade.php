@@ -13,9 +13,9 @@
                         <img src="{{ asset('uploads') . '/' . $post->imagen }}" alt="Imagen del post {{ $post->titulo }}">
                     </a>
                         @auth
-                            <livewire:like-post/>
+                            <livewire:like-post :post="$post"/>
 
-                            @if ( $post->checkLike(auth()->user() ))
+                            {{-- @if ( $post->checkLike(auth()->user() ))
                                 <form action="{{ route('posts.likes.destroy', $post) }}" class="mt-2 flex gap-2" method="POST">
                                     @method('DELETE')
                                     @csrf
@@ -40,7 +40,7 @@
                                         </div>
                                     @endauth
                                 </form>
-                            @endif
+                            @endif --}}
                         @endauth
                     <p class="font-bold">
                         {{ $post->user->username }}

@@ -13,7 +13,7 @@
                 <div class="mt-5 flex justify-between items-center">
                     <div class="flex gap-2">
                         @auth
-                            <livewire:like-post/>
+                            <livewire:like-post :post="$post"/>
                             {{-- @if ( $post->checkLike(auth()->user() ))
                                 <form action="{{ route('posts.likes.destroy', $post) }}" class="flex gap-2" method="POST">
                                     @method('DELETE')
